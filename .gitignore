@@ -1,0 +1,28 @@
+# --- CMake 빌드 산출물 ---
+# CMakePresets.json에서 지정한 출력 경로가 out/ 이므로 전체 제외
+/out/
+/build/
+
+# --- vcpkg 의존성 설치 파일 ---
+# vcpkg가 매니페스트 모드에서 라이브러리를 설치하는 폴더
+/vcpkg_installed/
+
+# --- IDE 설정 (사용자별 로컬 설정 제외) ---
+.vs/
+.vscode/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+
+# --- 기타 컴파일 산출물 ---
+*.o
+*.obj
+*.exe
+*.pdb
+*.ilk
+*.exp
+*.lib
+*.dll
+*.so
+*.dylib
