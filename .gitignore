@@ -1,28 +1,80 @@
-# --- CMake 빌드 산출물 ---
-# CMakePresets.json에서 지정한 출력 경로가 out/ 이므로 전체 제외
-/out/
-/build/
+# OS
+.DS_Store
+Thumbs.db
 
-# --- vcpkg 의존성 설치 파일 ---
-# vcpkg가 매니페스트 모드에서 라이브러리를 설치하는 폴더
-/vcpkg_installed/
+# CMake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
+CMakeUserPresets.json
+vcpkg_installed/
+/build
 
-# --- IDE 설정 (사용자별 로컬 설정 제외) ---
-.vs/
-.vscode/
+# Visual Studio (Common)
+/.vs
 *.user
+*.suo
 *.userosscache
 *.sln.docstates
-*.suo
+*.VC.db
+*.VC.VC.opendb
 
-# --- 기타 컴파일 산출물 ---
-*.o
+# Visual Studio (Build outputs for C/C++/C#)
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+Debug*/
+Release*/
+x64/
+x86/
+ARM*/
+ipch/
+*.pch
 *.obj
-*.exe
 *.pdb
+*.idb
 *.ilk
+*.iobj
+*.ipdb
+*.tlog
+*.lastbuildstate
+*.sbr
+*.res
 *.exp
 *.lib
 *.dll
+*.exe
+*.app
 *.so
 *.dylib
+
+# Visual Studio (CMake / Ninja / MSBuild outputs)
+[Cc]MakeFiles/
+CMakeCache.txt
+CMakeScripts/
+cmake-build-*/
+CMakeSettings.json
+Makefile
+build/
+out/
+msbuild.log
+*.ninja
+.ninja_deps
+.ninja_log
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+!*.code-workspace

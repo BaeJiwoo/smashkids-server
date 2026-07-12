@@ -10,14 +10,12 @@ project(
 
 set(CMAKE_CXX_STANDARD 20)
 
+add_subdirectory(server)
 
+# mock client flag
+option(MOCK_CLIENT "mock client build" ON)
 
-add_executable(smashkids-server 
-    src/main.cpp
-)
+if(MOCK_CLIENT)
+    add_subdirectory(mockclient)
+endif()
 
-
-target_link_libraries(smashkids-server 
-    PRIVATE
-        ws2_32
-)
