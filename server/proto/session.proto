@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package smashkids;
+
+message user_data {
+    int64 user_index = 1;
+}
+
+message user_input {
+    float x = 1;
+    float y = 2;
+}
