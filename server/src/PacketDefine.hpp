@@ -3,9 +3,10 @@
 
 #include <Windows.h>
 
-enum class PLAYEROPERATION
+enum class USEROPERATION
 {
-    MOVE = 0,
+    LOGIN = 0,
+    
 };
 
 struct SYS_PACKET
@@ -13,4 +14,5 @@ struct SYS_PACKET
     UINT32 clientIndex;
     char* msg;
 };
+
 #endif

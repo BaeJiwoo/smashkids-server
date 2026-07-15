@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include "TcpClient.hpp"
+#include <utility>
 
 #define PORT 9000
 
@@ -20,8 +21,12 @@ int main(int argc, char* argv[])
     {
         std::getline(std::cin, input);
         if (input == "exit") break;
-
-        client.SendMessage(input);
+        
+        for(int i = 0; i < 100; i++)
+        {
+            client.SendMessage(input);
+            Sleep(10);
+        }
     }
     client.Stop();
 

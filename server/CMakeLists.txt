@@ -7,6 +7,11 @@ add_executable(smashkids-server
     src/ClientInfo.hpp
     src/Define.hpp
     src/PacketManager.hpp
+    src/PacketManager.cpp
+    src/PacketDefine.hpp
+    src/User.hpp
+    src/UserManager.hpp
+    src/UserManager.cpp
 )
 
 file(GLOB_RECURSE PROTO_FILES "${CMAKE_CURRENT_SOURCE_DIR}/proto/*.proto")

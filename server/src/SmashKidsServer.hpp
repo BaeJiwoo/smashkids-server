@@ -2,6 +2,7 @@
 #define ISLEWRIGHTER_SERVER_H
 
 #include "IOCPServer.hpp"
+#include "PacketManager.hpp"
 
 class SmashKidsServer : public IOCPServer
 {
@@ -13,6 +14,8 @@ class SmashKidsServer : public IOCPServer
     void Run(const UINT32 maxClient) 
     {
         StartServer(maxClient);
+        mPacketManager.Init(maxClient);
+
         std::cout << "[SYSTEM] Server Started...\n";
     }
 
@@ -25,9 +28,14 @@ class SmashKidsServer : public IOCPServer
     {
         std::string message = std::format("Client {0} connected\n", u32ClientIndex);
         std::cout << message;
+        mPacketManager.Connect(u32ClientIndex);
     }
 
-    void OnDisConnect(const UINT32 u32ClientIndex) override {}
+    void OnDisConnect(const UINT32 u32ClientIndex) override 
+    {
+        
+        mPacketManager.DisConnect(u32ClientIndex);
+    }
 
     void OnReceive(const UINT32 u32ClientIndex, const char* pMessage, const DWORD dwTrasferredSize) override 
     {
@@ -45,6 +53,8 @@ class SmashKidsServer : public IOCPServer
         std::cout << message;
     }
 
+    private:
+    PacketManager mPacketManager;
 
 };
 

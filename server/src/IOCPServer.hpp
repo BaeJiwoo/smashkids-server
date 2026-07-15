@@ -99,6 +99,12 @@ class IOCPServer
         if(accepterThread_.joinable())
         {
             accepterThread_.join();
+            std::cout << "Accepter Thread Closed\n";
+        }
+
+        for (int i = 0; i < workerCount_; ++i)
+        {
+            PostQueuedCompletionStatus(iocp_, 0, 0, nullptr);
         }
 
         for(auto & e: workerThreads_)
@@ -108,6 +114,7 @@ class IOCPServer
                 e.join();
             }
         }
+        std::cout << "Worker Threads Closed\n";
     }
     
     // Network IO Callback overrided at business logic
@@ -191,8 +198,14 @@ class IOCPServer
                 &overlapped,
                 INFINITE
             );
+            if(overlapped == nullptr)
+            {
+                break;
+            }
 
             OverlappedEx* overlappedEx = (OverlappedEx*)overlapped;
+
+            
 
             if (!success)
             {
