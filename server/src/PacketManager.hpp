@@ -1,14 +1,15 @@
-#ifndef PACKETMANAGER_HPP
-#define PACKETMANAGER_HPP
+#ifndef SMASHKIDS_PACKETMANAGER_HPP
+#define SMASHKIDS_PACKETMANAGER_HPP
 
 #include "proto\session.pb.h"
-#include <queue>
-#include <thread>
 #include "PacketDefine.hpp"
 #include "UserManager.hpp"
 
+#include <queue>
+#include <thread>
+
 class PacketManager {
-    public:
+public:
     PacketManager()
     {
         GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -22,7 +23,9 @@ class PacketManager {
 
     void DisConnect(const UINT32 u32ClientIndex);
     
-    private:
+    void ReceivePacketData(const UINT32 u32ClientIndex, const char* pMessage, const DWORD dwTrasferredSize);
+    
+private:
     UserManager mUserManager;
 };
 #endif

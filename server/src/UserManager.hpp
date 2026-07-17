@@ -1,12 +1,12 @@
-#ifndef USERMANAGER_HPP
-#define USERMANAGER_HPP
+#ifndef SMASHKIDS_USERMANAGER_HPP
+#define SMASHKIDS_USERMANAGER_HPP
 
 #include "User.hpp"
 #include <vector>
 
 class UserManager
 {
-    public:
+public:
     UserManager() = default;
     ~UserManager()
     {
@@ -25,7 +25,7 @@ class UserManager
 
     User* GetUserInfo(const UINT32 u32ClientIndex);
 
-    private:
+private:
     std::vector<User*> mUsers;
 };
 

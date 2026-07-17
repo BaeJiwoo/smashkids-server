@@ -1,7 +1,11 @@
-#ifndef USER_HPP
-#define USER_HPP
+#ifndef SMASHKIDS_USER_HPP
+#define SMASHKIDS_USER_HPP
+
+#include "RingBuffer.hpp"
+#include "PacketDefine.hpp"
 
 #include <Windows.h>
+
 #include <format>
 #include <iostream>
 
@@ -11,16 +15,16 @@ enum class USERSTATE{
     LOGIN
 };
 
-//TODO: Packet
 class User
 {
-    public:
+public:
     User(const UINT32 u32ClientIndex) : mUserIndex(u32ClientIndex) { }
     ~User() = default;
 
     void Init(const UINT32 u32UserIndex)
     {
         mUserIndex = u32UserIndex;
+        mRingBuffer = std::make_unique<RingBuffer>(4096);
     }
 
     void Connect() 
@@ -39,12 +43,26 @@ class User
         std::cout << message;
     }
 
+    void SetPacket()
+    {
+        // TODO: push data to user ring buffer
+    }
+
+    PacketInfo GetPacket()
+    {
+        // TODO: check packet is completed via packet info
+        // NOTE: first data of buffer would be packet size&type info.
+        //          if you read it from buffer another packet info would going will places at head;
+    }
+
     bool IsEmpty() { return mUserState == USERSTATE::DISCONNECTED ? true : false; }
     
-    private:
+private:
     USERSTATE mUserState = USERSTATE::DISCONNECTED;
 
     UINT32 mUserIndex = -1;
+
+    std::unique_ptr<RingBuffer> mRingBuffer;
 };
 
 #endif

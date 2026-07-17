@@ -1,15 +1,15 @@
-#ifndef ISLEWRIGHTER_SERVER_H
-#define ISLEWRIGHTER_SERVER_H
+#ifndef SMASHKIDS_SERVER_H
+#define SMASHKIDS_SERVER_H
 
 #include "IOCPServer.hpp"
 #include "PacketManager.hpp"
 
 class SmashKidsServer : public IOCPServer
 {
-    public:
+public:
     SmashKidsServer() {}
+    
     ~SmashKidsServer() {}
-
 
     void Run(const UINT32 maxClient) 
     {
@@ -53,7 +53,7 @@ class SmashKidsServer : public IOCPServer
         std::cout << message;
     }
 
-    private:
+private:
     PacketManager mPacketManager;
 
 };

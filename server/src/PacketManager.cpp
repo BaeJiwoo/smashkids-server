@@ -14,3 +14,8 @@ void PacketManager::DisConnect(const UINT32 u32ClientIndex)
 {
     mUserManager.DisConnect(u32ClientIndex);
 }
+
+void PacketManager::ReceivePacketData(const UINT32 u32ClientIndex, const char* pMessage, const DWORD dwTrasferredSize)
+{
+    // TODO: push data to pMessage to user...
+}

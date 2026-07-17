@@ -1,15 +1,13 @@
-﻿#ifndef IOCP_SERVER_H
-#define IOCP_SERVER_H
-
+﻿#ifndef SMASHKIDS_IOCP_SERVER_H
+#define SMASHKIDS_IOCP_SERVER_H
 
 #include "ClientInfo.hpp"
 #include <thread>
 #include <vector>
 
-
 class IOCPServer 
 {
-    public:
+public:
     IOCPServer() = default;
     ~IOCPServer() { WSACleanup(); }
 
@@ -27,8 +25,6 @@ class IOCPServer
         
         return true;
     }
-
-
 
     /// @brief  Bind&Listen listening socket
     bool BindAndListen() 
@@ -77,7 +73,6 @@ class IOCPServer
 
             return false;
         }
-
         
         CreateClient(maxClient);
 
@@ -126,8 +121,7 @@ class IOCPServer
 
     virtual void OnSend(const UINT32 u32ClientIndex, const char* pMessage, const DWORD dwTrasferredSize) {}
 
-    private:
-
+private:
     void CreateClient(const UINT32 maxClient) 
     {
         maxClientCount_ = maxClient;

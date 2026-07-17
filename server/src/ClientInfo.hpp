@@ -1,5 +1,5 @@
-﻿#ifndef CLIENT_INFO_H
-#define CLIENT_INFO_H
+﻿#ifndef SMASHKIDS_CLIENT_INFO_H
+#define SMASHKIDS_CLIENT_INFO_H
 
 #include "Define.hpp"
 

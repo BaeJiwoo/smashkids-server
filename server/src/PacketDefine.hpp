@@ -1,5 +1,5 @@
-#ifndef PACKETDEFINE_HPP
-#define PACKETDEFINE_HPP
+#ifndef SMASHKIDS_PACKETDEFINE_HPP
+#define SMASHKIDS_PACKETDEFINE_HPP
 
 #include <Windows.h>
 
@@ -9,10 +9,12 @@ enum class USEROPERATION
     
 };
 
-struct SYS_PACKET
+struct PacketInfo
 {
     UINT32 clientIndex;
     char* msg;
 };
+
+
 
 #endif

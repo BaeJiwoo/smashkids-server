@@ -1,5 +1,5 @@
-#ifndef DEFINE_H
-#define DEFINE_H
+#ifndef SMASHKIDS_DEFINE_H
+#define SMASHKIDS_DEFINE_H
 
 #pragma comment(lib, "ws2_32.lib")
 
